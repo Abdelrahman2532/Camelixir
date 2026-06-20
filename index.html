@@ -37,8 +37,8 @@ nav{
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo img{width:48px;height:48px;object-fit:contain}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1}
-.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;letter-spacing:0.08em;color:var(--black)}
-.nav-logo-sub{font-size:10px;font-weight:400;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase}
+.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.2vw,22px);font-weight:700;letter-spacing:0.08em;color:var(--black)}
+.nav-logo-sub{font-size:clamp(8px,1vw,10px);font-weight:400;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase}
 .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
 .nav-links a{
   font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
@@ -54,16 +54,20 @@ nav{
 .nav-links a.active{color:var(--gold)}
 .nav-links a.active::after{width:100%}
 .nav-right{display:flex;align-items:center;gap:20px}
-.nav-cart{background:none;border:none;cursor:pointer;color:var(--text-body);padding:8px;transition:color 0.2s}
+.nav-cart{background:none;border:none;cursor:pointer;color:var(--text-body);padding:8px;transition:color 0.2s;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
 .nav-cart:hover{color:var(--gold)}
 .btn-shop-nav{
   background:var(--gold);color:#fff;border:none;cursor:pointer;
   padding:12px 28px;font-size:12px;font-weight:600;letter-spacing:0.12em;
   text-transform:uppercase;border-radius:4px;transition:all 0.3s ease;
+  min-height:44px;display:flex;align-items:center;justify-content:center;
 }
 .btn-shop-nav:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 4px 16px rgba(184,137,42,0.35)}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;min-width:44px;min-height:44px;justify-content:center}
 .hamburger span{width:22px;height:2px;background:var(--black);transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translateY(12px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translateY(-12px)}
 
 /* HERO */
 .hero{
@@ -85,13 +89,13 @@ nav{
 .hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
 .hero-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(52px,5.5vw,80px);
+  font-size:clamp(42px,5.5vw,80px);
   font-weight:400;line-height:1.05;
   margin-bottom:24px;color:var(--black);
 }
 .hero-title span{color:var(--gold);font-style:italic}
 .hero-sub{
-  font-size:16px;line-height:1.7;color:var(--text-body);font-weight:300;
+  font-size:clamp(14px,2vw,16px);line-height:1.7;color:var(--text-body);font-weight:300;
   max-width:380px;margin-bottom:36px;
 }
 .hero-benefits{display:flex;flex-direction:column;gap:16px;margin-bottom:48px}
@@ -99,23 +103,23 @@ nav{
 .benefit-icon{
   width:40px;height:40px;border-radius:50%;border:1px solid rgba(184,137,42,0.3);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  color:var(--gold);
+  color:var(--gold);min-width:40px;
 }
-.benefit-text h4{font-size:14px;font-weight:600;color:var(--black);margin-bottom:3px}
-.benefit-text p{font-size:13px;color:var(--text-muted);line-height:1.5}
-.hero-ctas{display:flex;align-items:center;gap:24px}
+.benefit-text h4{font-size:clamp(12px,1.5vw,14px);font-weight:600;color:var(--black);margin-bottom:3px}
+.benefit-text p{font-size:clamp(11px,1.3vw,13px);color:var(--text-muted);line-height:1.5}
+.hero-ctas{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .btn-primary{
   background:var(--gold);color:#fff;border:none;cursor:pointer;
   padding:16px 36px;font-size:13px;font-weight:600;letter-spacing:0.1em;
   text-transform:uppercase;border-radius:4px;text-decoration:none;
   display:inline-flex;align-items:center;gap:8px;
-  transition:all 0.3s ease;
+  transition:all 0.3s ease;min-height:44px;
 }
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,137,42,0.3)}
 .btn-text{
-  font-size:13px;font-weight:500;letter-spacing:0.08em;color:var(--text-body);
+  font-size:clamp(11px,1.5vw,13px);font-weight:500;letter-spacing:0.08em;color:var(--text-body);
   text-decoration:none;display:flex;align-items:center;gap:6px;
-  transition:color 0.2s;
+  transition:color 0.2s;min-height:44px;
 }
 .btn-text:hover{color:var(--gold)}
 .btn-text svg{transition:transform 0.2s}
@@ -142,9 +146,9 @@ nav{
   display:flex;flex-direction:column;align-items:center;
   animation:spin-slow 20s linear infinite reverse;
 }
-.badge-made{font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px}
-.badge-pct{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1}
-.badge-natural{font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
+.badge-made{font-size:clamp(6px,1vw,8px);letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px}
+.badge-pct{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,28px);font-weight:700;color:var(--gold);line-height:1}
+.badge-natural{font-size:clamp(6px,1vw,8px);letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
 @keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 /* MARQUEE SECTION */
@@ -334,12 +338,9 @@ nav{
 
 .banner-content{
     position:absolute;
-
     left:80px;
-    top:50%;
-
+    top:40%;
     transform:translateY(-50%);
-
     z-index:2;
 }
 
@@ -410,117 +411,179 @@ nav{
 .mobile-menu.open{display:flex}
 
 /* RESPONSIVE */
-@media(max-width:1024px){
+/* TABLET - 1025px to 1280px */
+@media(max-width:1280px){
   nav{padding:0 32px}
+  .nav-logo-name{font-size:18px}
+  .sizes-section{padding:80px 48px;gap:60px}
+  .cta-banner{padding:60px 48px}
+}
+
+/* TABLET - 769px to 1024px */
+@media(max-width:1024px){
+  nav{padding:0 24px}
   .nav-links{display:none}
   .hamburger{display:flex}
-  .hero{grid-template-columns:0.95fr 1.05fr;min-height:min(100vh,calc(100vw*1.05));}
-  .hero-left{padding:60px 32px;}
-  .hero-right{min-height:420px}
-  .sizes-section{grid-template-columns:1fr 1fr;padding:60px 32px;gap:48px}
-  .ingredients-section{padding:60px 32px}
-  .cta-banner{grid-template-columns:1fr auto;padding:60px 32px;gap:32px}
-  .cta-action{flex-wrap:nowrap}
+  .nav-logo-name{font-size:16px}
+  .nav-cart{min-width:40px;min-height:40px}
+  
+  .hero{grid-template-columns:1fr 1fr;min-height:auto;padding-top:72px}
+  .hero-left{padding:60px 40px}
+  .hero-right{min-height:450px}
+  .hero-title{font-size:clamp(48px,5vw,64px)}
+  .hero-sub{font-size:clamp(14px,1.8vw,15px)}
+  
+  .sizes-section{grid-template-columns:1fr 1fr;padding:60px 40px;gap:48px}
+  .sizes-left h2{font-size:clamp(32px,3.5vw,44px)}
+  .sizes-right{grid-template-columns:1fr 1fr;gap:20px}
+  .size-card{padding:28px 20px}
+  
+  .ingredients-section{padding:60px 40px}
+  .ingredients-grid{grid-template-columns:repeat(3,1fr);gap:20px}
+  
+  .cta-banner{grid-template-columns:1fr;padding:50px 40px;gap:30px}
+  .cta-action{flex-direction:column;align-items:flex-start}
+  
+  .marquee-word{font-size:clamp(32px,4vw,48px);padding:0 24px}
+  .section-divider{width:90%}
+  .footer-top{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding:60px 40px 48px}
+  .footer-bottom{padding:24px 40px}
 }
-@media(max-width:640px){
-  nav{padding:0 16px}
-  .hero{grid-template-columns:0.9fr 1.1fr;gap:18px;}
-  .hero-left{padding:42px 16px;}
-  .hero-title{font-size:44px;line-height:1.05;}
-  .hero-sub{font-size:15px;max-width:100%;}
-  .hero-badge{right:14px;width:88px;height:88px}
-  .badge-pct{font-size:22px}
-  .hero-right{min-height:360px}
-  .hero-benefits{gap:14px}
-  .benefit-icon{width:38px;height:38px}
-  .hero-ctas{gap:18px;flex-wrap:wrap}
-  .btn-primary{padding:14px 28px;font-size:12px}
-  .btn-text{font-size:12px}
-  .sizes-section{grid-template-columns:1fr 1fr;padding:48px 16px;gap:24px}
-  .sizes-left{max-width:100%}
-  .sizes-right{grid-template-columns:1fr 1fr;gap:18px}
+
+/* MOBILE - 481px to 768px */
+@media(max-width:768px){
+  nav{padding:0 16px;height:64px}
+  .nav-logo-name{font-size:14px}
+  .nav-right{gap:12px}
+  .nav-cart{min-width:40px;min-height:40px}
+  .btn-shop-nav{padding:10px 20px;font-size:11px}
+  
+  .hero{padding-top:64px}
+  .hero-left{padding:50px 24px}
+  .hero-title{font-size:clamp(36px,7vw,52px)}
+  .hero-sub{max-width:100%}
+  .hero-ctas{flex-direction:column;align-items:flex-start;gap:16px}
+  .btn-primary{width:100%;justify-content:center;padding:14px 24px}
+  .btn-text{width:100%}
+  .hero-badge{width:85px;height:85px;right:20px}
+  .badge-made{font-size:7px}
+  .badge-pct{font-size:clamp(18px,4vw,24px)}
+  
+  .sizes-section{grid-template-columns:1fr;padding:50px 24px;gap:40px}
+  .sizes-left h2{font-size:clamp(28px,5vw,38px)}
+  .sizes-left p{font-size:14px}
+  .sizes-right{grid-template-columns:1fr;gap:16px}
   .size-card{padding:24px 18px}
-  .size-card img{width:78px}
-  .size-vol{font-size:22px}
-  .size-price{font-size:20px}
-  .size-features li{font-size:11px}
-  .btn-outline{padding:12px 22px;font-size:11px}
-  .ingredients-grid{grid-template-columns:repeat(2,1fr);gap:16px;max-width:680px;margin:0 auto 80px;}
-  .ingredient-card{padding:28px 22px;border-right:none;border-bottom:1px solid rgba(184,137,42,0.1)}
-  .ingredient-card:last-child{border-bottom:none}
-  .ingredient-img{width:120px;height:100px}
-  .ingredient-name{font-size:16px}
+  .size-card img{width:75px}
+  .size-vol{font-size:clamp(18px,4vw,24px)}
+  .size-price{font-size:clamp(16px,3vw,20px)}
+  .btn-outline{padding:12px 24px;font-size:11px}
+  
+  .section-title{font-size:clamp(28px,5vw,40px);margin-bottom:40px}
+  .ingredients-grid{grid-template-columns:repeat(2,1fr);gap:0;margin-bottom:60px}
+  .ingredient-card{padding:24px 18px;border-right:none;border-bottom:1px solid rgba(184,137,42,0.1)}
+  .ingredient-card:nth-child(odd){border-right:1px solid rgba(184,137,42,0.1)}
+  .ingredient-card:last-child{border-bottom:none;border-right:none}
+  .ingredient-img{width:100px;height:85px}
+  .ingredient-name{font-size:15px}
   .ingredient-desc{font-size:12px}
-  .ingredients-section{padding:48px 16px}
-  .cta-banner{margin:0 12px 12px;border-radius:12px;padding:48px 20px}
-  .cta-text h2{font-size:clamp(28px,4.5vw,38px)}
-  .btn-dark{padding:14px 28px;font-size:12px}
-  .bottom-banner{margin:0 12px 12px;height:200px;border-radius:18px}
-  .banner-content{left:20px;top:50%;transform:translateY(-50%)}
-  .banner-content h2{font-size:28px;line-height:1.1;margin-bottom:15px;max-width:260px}
-  .banner-btn{padding:10px 20px;font-size:12px}
-  .footer-top{grid-template-columns:1fr 1fr;padding:48px 20px;gap:32px}
-  .footer-bottom{padding:20px;flex-direction:column;gap:12px;text-align:center}
-  .footer-bottom-links{justify-content:center;flex-wrap:wrap}
+  .ingredients-section{padding:50px 24px}
+  
+  .marquee-word{font-size:clamp(24px,4vw,36px);padding:0 16px}
+  
+  .cta-banner{padding:45px 24px;margin:24px 16px;border-radius:12px}
+  .cta-text h2{font-size:clamp(24px,5vw,32px)}
+  .cta-action{flex-direction:column;align-items:stretch}
+  .btn-dark{width:100%;justify-content:center;padding:14px 24px}
+  
+  .bottom-banner{margin:20px 16px;height:240px;border-radius:12px}
+  .banner-content{left:20px;max-width:calc(100% - 40px)}
+  .banner-content h2{font-size:clamp(24px,5vw,32px);margin-bottom:20px}
+  .banner-btn{padding:12px 28px;font-size:12px}
+  
+  .section-divider{width:90%;margin:60px auto 40px}
+  .footer-top{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding:72px 40px 56px}
+  .footer-bottom{padding:24px 40px;display:flex;align-items:center;justify-content:space-between}
 }
-@media(max-width:500px){
+
+/* SMALL MOBILE - 320px to 480px */
+@media(max-width:480px){
+  *{-webkit-tap-highlight-color:transparent}
+  
   nav{padding:0 12px}
-  .hero{gap:12px}
-  .hero-left{padding:32px 12px;}
-  .hero-right{min-height:320px}
-  .hero-title{font-size:clamp(40px,8vw,44px);}
-  .hero-sub{font-size:14px;}
-  .hero-benefits{gap:12px}
-  .benefit-icon{width:38px;height:38px}
-  .hero-ctas{gap:14px}
-  .btn-primary{padding:12px 24px;font-size:12px}
-  .btn-text{font-size:12px}
-  .sizes-section{padding:36px 12px;gap:20px}
-  .sizes-right{gap:12px}
-  .size-card{padding:20px 16px}
-  .size-card img{width:72px}
-  .size-vol{font-size:20px}
-  .size-price{font-size:18px}
-  .size-features li{font-size:11px}
-  .btn-outline{padding:10px 18px;font-size:11px}
-  .ingredients-grid{gap:12px;max-width:100%;margin:0 auto 72px;}
-  .ingredient-card{padding:24px 18px}
-  .ingredient-img{width:110px;height:92px}
-  .cta-banner{padding:40px 16px}
-  .cta-text h2{font-size:clamp(26px,5.5vw,34px)}
-  .btn-dark{padding:12px 24px}
-  .bottom-banner{height:180px;margin:0 10px 10px;border-radius:18px}
-  .banner-content{left:16px}
-  .banner-content h2{font-size:24px;max-width:230px}
-  .footer-top{padding:40px 16px;gap:28px}
-  .footer-bottom{padding:18px;}
-}
-@media (max-width: 768px){
-
-    .bottom-banner{
-        height: 200px;
-        margin: 12px;
-        border-radius: 18px;
-    }
-
-    .banner-content{
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .banner-content h2{
-        font-size: 28px;
-        line-height: 1.1;
-        margin-bottom: 15px;
-        max-width: 250px;
-    }
-
-    .banner-btn{
-        padding: 10px 20px;
-        font-size: 12px;
-    }
-
+  .nav-logo{gap:8px}
+  .nav-logo img{width:40px;height:40px}
+  .nav-logo-name{font-size:12px}
+  .nav-logo-sub{font-size:7px}
+  .nav-right{gap:8px}
+  
+  .hero{gap:0}
+  .hero-left{padding:40px 16px;padding-top:80px}
+  .hero-title{font-size:clamp(28px,8vw,42px);margin-bottom:16px}
+  .hero-eyebrow{font-size:10px;margin-bottom:16px}
+  .hero-sub{font-size:13px;margin-bottom:24px}
+  .hero-benefits{gap:12px;margin-bottom:32px}
+  .benefit-item{gap:12px}
+  .benefit-icon{width:36px;height:36px;font-size:16px}
+  .benefit-text h4{font-size:12px}
+  .benefit-text p{font-size:11px}
+  .hero-ctas{flex-direction:column;gap:12px;align-items:stretch}
+  .btn-primary{padding:12px 16px;font-size:11px}
+  .btn-text{font-size:11px}
+  .hero-right{min-height:350px}
+  .hero-badge{display:none}
+  
+  .sizes-section{padding:40px 12px;gap:30px}
+  .sizes-left h2{font-size:clamp(24px,6vw,32px);margin-bottom:16px}
+  .sizes-left p{font-size:13px;margin-bottom:24px}
+  .sizes-right{grid-template-columns:1fr;gap:12px}
+  .size-card{padding:18px 14px}
+  .size-card img{width:65px;margin-bottom:12px}
+  .size-vol{font-size:18px}
+  .size-label{font-size:10px;margin-bottom:12px}
+  .size-features li{font-size:10px}
+  .size-price{font-size:16px;margin-bottom:12px}
+  .btn-add{width:40px;height:40px;font-size:18px}
+  .btn-outline{padding:10px 16px;font-size:10px}
+  
+  .section-title{font-size:clamp(22px,6vw,32px);margin-bottom:30px}
+  .ingredients-grid{grid-template-columns:1fr;gap:0;margin-bottom:40px}
+  .ingredient-card{padding:18px 12px;border-right:none;border-bottom:1px solid rgba(184,137,42,0.1)}
+  .ingredient-card:last-child{border-bottom:none}
+  .ingredient-img{width:80px;height:70px}
+  .ingredient-name{font-size:14px}
+  .ingredient-desc{font-size:11px;line-height:1.5}
+  .ingredients-section{padding:40px 12px}
+  
+  .marquee-word{font-size:clamp(20px,4vw,28px);padding:0 12px}
+  .marquee-section{padding:20px 0}
+  
+  .cta-banner{padding:30px 16px;margin:16px 8px;border-radius:8px}
+  .cta-banner::before{display:none}
+  .cta-text h2{font-size:clamp(20px,6vw,28px);margin-bottom:20px}
+  .btn-dark{padding:12px 20px;font-size:11px}
+  
+  .bottom-banner{margin:16px 8px;height:200px;border-radius:10px}
+  .banner-content{left:16px;right:16px;max-width:none}
+  .banner-content h2{font-size:clamp(20px,6vw,26px);margin-bottom:12px;line-height:1.2}
+  .banner-btn{padding:10px 16px;font-size:11px}
+  
+  .section-divider{width:85%;margin:40px auto 30px}
+  .section-divider::after{font-size:12px;top:-10px}
+  
+  .footer-top{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding:60px 16px 48px}
+  .footer-logo{gap:10px}
+  .footer-logo img{width:40px;height:40px}
+  .footer-logo-name{font-size:18px}
+  .footer-logo-sub{font-size:8px}
+  .footer-brand-desc{font-size:12px;max-width:100%}
+  .footer-col h4{font-size:10px;margin-bottom:20px}
+  .footer-col ul li a{font-size:12px}
+  .footer-contact-label{font-size:8px}
+  .footer-contact-value{font-size:12px}
+  .footer-bottom{padding:20px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .footer-copy{font-size:11px}
+  .footer-bottom-links{gap:16px}
 }
 
 /* CART ICON SVG */
@@ -540,7 +603,7 @@ nav{
   </a>
   <ul class="nav-links">
     <li><a href="#" class="active">Home</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="owners.html">About</a></li>
     <li><a href="#product">Product</a></li>
     <li><a href="#benefits">Benefits</a></li>
     <li><a href="#ingredients">Ingredients</a></li>
@@ -558,7 +621,7 @@ nav{
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#" onclick="toggleMenu()">Home</a>
-  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="owners.html" onclick="toggleMenu()">About</a>
   <a href="#product" onclick="toggleMenu()">Product</a>
   <a href="#benefits" onclick="toggleMenu()">Benefits</a>
   <a href="#ingredients" onclick="toggleMenu()">Ingredients</a>
@@ -658,7 +721,7 @@ nav{
         <li>Easy to carry</li>
         <li>Fits your lifestyle</li>
       </ul>
-      <div class="size-price"><span>EGP</span> 55</div>
+      <div class="size-price"><span>EGP</span> 30</div>
       <button class="btn-add" aria-label="Add to cart">+</button>
     </div>
     <div class="size-card featured">
@@ -670,7 +733,7 @@ nav{
         <li>Daily nutrition boost</li>
         <li>Ideal meal companion</li>
       </ul>
-      <div class="size-price"><span>EGP</span> 95</div>
+      <div class="size-price"><span>EGP</span> 80</div>
       <button class="btn-add" aria-label="Add to cart">+</button>
     </div>
   </div>
@@ -719,7 +782,7 @@ nav{
   </div>
 
 </div>
-
+</section>
 
 
 <!-- FOOTER -->
@@ -795,14 +858,51 @@ nav{
   opacity:0.5;
 }
 
-@media(max-width:1024px){
-  .footer-top{grid-template-columns:1fr 1fr;gap:40px;padding:56px 40px 48px}
-  .footer-bottom{padding:20px 40px;flex-direction:column;gap:16px;text-align:center}
-  .footer-bottom-links{justify-content:center}
+/* MOBILE MENU */
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:72px;
+  left:0;
+  right:0;
+  z-index:99;
+  background:rgba(237,229,213,0.98);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(184,137,42,0.15);
+  padding:12px 0;
+  flex-direction:column;
+  gap:0;
+  list-style:none;
+  max-height:calc(100vh - 72px);
+  overflow-y:auto;
+  box-shadow:0 8px 24px rgba(0,0,0,0.08);
 }
-@media(max-width:640px){
-  .footer-top{grid-template-columns:1fr;padding:48px 20px 40px;gap:36px}
-  .footer-bottom{padding:20px;}
+
+.mobile-menu.open{
+  display:flex;
+}
+
+.mobile-menu a{
+  display:block;
+  padding:14px 20px;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--text-body);
+  border-bottom:1px solid rgba(184,137,42,0.08);
+  transition:background 0.2s,color 0.2s;
+}
+
+.mobile-menu a:hover{
+  background:rgba(184,137,42,0.08);
+  color:var(--gold);
+}
+
+.mobile-menu .btn-primary{
+  margin:8px 12px;
+  width:calc(100% - 24px);
 }
 </style>
 
@@ -822,7 +922,10 @@ document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(e
 
 // Mobile menu
 function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
+  const menu = document.getElementById('mobileMenu');
+  const hamburger = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  hamburger.classList.toggle('open');
 }
 
 // Navbar scroll effect
